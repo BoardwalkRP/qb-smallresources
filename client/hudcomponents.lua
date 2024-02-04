@@ -29,6 +29,20 @@ CreateThread(function()
             DisableControlAction(2, disableControls[i], true)
         end
 
+        local _, weapon = GetCurrentPedWeapon(PlayerPedId(), true)
+        local showReticle = false
+
+        for _, v in ipairs(Config.WhitelistedReticleWeapons) do
+            if weapon == v then
+                showReticle = true
+                break
+            end
+        end
+
+        if not showReticle then
+            HideHudComponentThisFrame(14)
+        end
+
         DisplayAmmoThisFrame(displayAmmo)
 
         SetParkedVehicleDensityMultiplierThisFrame(Config.Density.parked)
