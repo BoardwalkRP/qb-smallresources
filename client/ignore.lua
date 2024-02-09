@@ -81,6 +81,13 @@ if Config.Disable.idleCamera then
     end)
 end
 
+CreateThread(function()
+    while true do
+        DistantCopCarSirens(false)
+        Wait(1)
+    end
+end)
+
 RegisterNetEvent('QBCore:Client:DrawWeapon', function()
     local sleep
     while true do
