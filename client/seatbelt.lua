@@ -57,7 +57,7 @@ function SeatBeltLoop()
     CreateThread(function()
         while true do
             sleep = 0
-            if seatbeltOn or harnessOn then
+            if (seatbeltOn or harnessOn) and not Config.SeatbeltEasyExit then
                 DisableControlAction(0, 75, true)
                 DisableControlAction(27, 75, true)
             end
